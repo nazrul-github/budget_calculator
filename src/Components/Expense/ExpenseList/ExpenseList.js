@@ -4,8 +4,7 @@ import Wrapper from "../../../HOC/Wrapper";
 import classes from "../../../App.module.css";
 import { MdDelete } from "react-icons/md";
 
-const expenseList = props => {
-  const expenses = props.expenses;
+const expenseList = ({ expenses, clearExpenses }) => {
   return (
     <Wrapper>
       <ul className={classes.list}>
@@ -14,7 +13,7 @@ const expenseList = props => {
         })}
       </ul>
       {expenses.length > 0 && (
-        <button className={classes.btn}>
+        <button className={classes.btn} onClick={() => clearExpenses()}>
           Clear Expenses <MdDelete className={classes.btn_icon} />
         </button>
       )}
